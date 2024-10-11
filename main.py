@@ -1,3 +1,6 @@
+# Python Memory Game using Tkinter and Pygame.
+# Developed by: Sushmit Biswas
+
 import tkinter as tk
 from ui import MemoryGameUI
 
