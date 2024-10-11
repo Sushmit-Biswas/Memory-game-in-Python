@@ -24,6 +24,7 @@ class MemoryGameUI:
         self.root.title("Memory Game 🧠")
         self.root.iconbitmap('game.ico')  
         self.root.geometry("800x510")
+        self.center_window()  # Center the main window on the screen
         
         # Initialize game components
         self.score_manager = ScoreManager()
@@ -43,6 +44,16 @@ class MemoryGameUI:
 
         # Create the initial game screen
         self.create_initial_screen()
+
+    def center_window(self, window=None):
+        # Center the window on the screen
+        if window is None:
+            window = self.root
+        screen_width = window.winfo_screenwidth()
+        screen_height = window.winfo_screenheight()
+        x = (screen_width/2) - (800/2)
+        y = (screen_height/2) - (510/2)
+        window.geometry(f'800x510+{int(x)}+{int(y)}')
 
     def create_initial_screen(self):
         # Clear existing widgets
@@ -166,6 +177,7 @@ class MemoryGameUI:
         history_window.iconbitmap('game.ico') 
         history_window.geometry("800x500")
         history_window.configure(bg=self.colors['background'])
+        self.center_window(history_window)  # Center the history window on the screen
 
         # Create a frame for the table
         frame = tk.Frame(history_window, bg=self.colors['background'])
